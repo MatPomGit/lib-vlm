@@ -1,0 +1,9 @@
+# Only explicitly approved Pages sources, never internal docs/.
+site_name: "Biblioteka"
+docs_dir: pages
+site_dir: site
+theme:
+  name: mkdocs
+  highlightjs: false
+nav:
+  - Start: index.md
