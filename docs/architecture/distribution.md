@@ -1,9 +1,7 @@
-# Budowanie, pakowanie i dystrybucja
+# Dystrybucja
 
-**Stan: NOT_RELEASED.** W szablonie nie wybrano menedżera pakietów ani registry.
+Preferowany format docelowy: pakiet Python `lib-vlm` z katalogu `src/lib_vlm/`. W repozytorium obecnie **nie ma modułów Python, `pyproject.toml` ani opublikowanego pakietu**. Nie jest możliwa instalacja produkcyjna.
 
-Po wyborze profilu npm, Maven, NuGet, Python, Unity UPM lub OCI udokumentuj rzeczywisty runtime, wersje, narzędzia build, manifest/lockfile, licencje, hashe i metadane pakietu. Przetestuj instalację w czystym środowisku i zgodność z odbiorcami.
+Każde wydanie musi posiadać zgodną licencję, określone zależności i lockfile lub reprodukowalny zestaw ograniczeń, test jednostkowy/kontraktowy, build sdist i wheel, clean-install, sprawdzony SHA i zgodę na release. SDK, modele i wagi mają osobne licencje; sam kod biblioteki nie daje prawa do ich dystrybucji.
 
-**Nie utożsamiaj** zielonego CI, zbudowanego artefaktu, podpisanego release, publikacji do registry oraz zweryfikowanego wdrożenia. Każdy etap wymaga odrębnego dowodu i uprawnień.
-
-Powiązania: [wydania](../releases.md), [supply-chain](../security/supply-chain.md), [runbook](../operations/runbook.md).
+Repozytorium nie publikuje GitHub Pages przy merge. Dokumentacja publiczna korzysta wyłącznie z `pages/`, odseparowanego od `docs/`.

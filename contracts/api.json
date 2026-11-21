@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "name": "REPLACE_PACKAGE_ID",
+  "name": "lib_vlm",
   "api_version": "0.1.0",
   "stability": "experimental",
   "public_entrypoints": [],

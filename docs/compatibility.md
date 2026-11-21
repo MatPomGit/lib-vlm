@@ -1,9 +1,14 @@
-# Macierz zgodności
+# Zgodność i możliwości
 
-Dokumentuj tylko testy **rzeczywiście wykonane**. Rozdziel `SUPPORTED`, `EXPERIMENTAL`, `UNSUPPORTED`, `NOT_RUN`.
+Wersje poniżej opisują **planowane cele**, nie wyniki wykonanych testów.
 
-| Środowisko | Wersja | Test / artefakt | Status |
-| --- | --- | --- | --- |
-| REPLACE_PLATFORM | REPLACE_VERSION | brak | NOT_RUN |
+| Warstwa | Zakres | Status |
+| --- | --- | --- |
+| Python | 3.11+ (proponowany) | NOT_RUN |
+| Ollama API | lokalny model tekstowy i VLM | NOT_RUN |
+| llama.cpp server | obsługiwane przez konkretny model modalności | NOT_RUN |
+| API kompatybilne z OpenAI | zgodny podzbiór endpointów | NOT_RUN |
+| Windows / Linux | docelowe środowiska klienta | NOT_RUN |
+| Wideo / audio native | zależne od modelu i backendu | NOT_RUN |
 
-Uwzględnij OS, runtime, urządzenie, GPU/CPU, Unity URP/HDRP, Web i Android, jeżeli dotyczą.
+Zdolności modelu (`vision`, `audio`, `structured_output`, `tool_calling`, `streaming`) nie mogą być domniemane na podstawie nazwy dostawcy. Konkretne wyniki testów i identyfikatory modeli należy dopisywać dopiero po ich uruchomieniu.

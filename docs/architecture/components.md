@@ -1,11 +1,15 @@
-# Komponenty i interfejsy
+# Podział odpowiedzialności
 
-**Stan: NOT_DEFINED.** Nie istnieją moduły produkcyjne w szablonie.
+Własność źródeł: jedno repozytorium `lib-vlm`. Wszystkie wpisy poniżej są planowane; katalogi zawierają wyłącznie dokumentację.
 
-| Moduł | Źródła | Kontrakt API | Dowód |
-| --- | --- | --- | --- |
-| Brak gotowego modułu | NOT_APPLICABLE | [contracts/api.json](../../contracts/api.json) | NOT_RUN |
+| Moduł | Wejście | Wyjście | Odpowiedzialność | Status |
+| --- | --- | --- | --- | --- |
+| `core/` | Ujednolicone żądanie | Typy, odpowiedź, błąd | Schematy, walidacja, capabilities | PLANNED |
+| `text/` | Treść tekstowa | Tekst/JSON | Chat, completion, structured output | PLANNED |
+| `vision/` | Obrazy/klatki | Części wizualne | Dane wejściowe VLM, timestampy | PLANNED |
+| `audio/` | Audio + metadane | Części audio | Multimodalna inferencja audio | PLANNED |
+| `providers/` | Żądanie + endpoint | Znormalizowana odpowiedź | Translacja API backendu | PLANNED |
 
-Po wdrożeniu kodu zapisz rzeczywiste moduły, ich odpowiedzialność, publiczne symbole, typy, semantykę błędów, jednostki, zależności i wersję API/ABI. Zmiany niekompatybilne wymagają osobnego planu migracji oraz testów odbiorców.
+`lib-vlm` nie steruje agentami, kolejkami ani modelami w pamięci GPU. Research Autopilot odpowiada za harmonogram, leasing, routing zadań i monitoring wykonawców; `lib-exp` za protokół eksperymentu; `lib-eye` za pomiary okulograficzne; `lib-unity` i `lib-unreal` za integracje silników. Odbiorcy nie są jeszcze zweryfikowani.
 
-Zobacz [kompatybilność](../compatibility.md), [konsumentów](../consumers.md) i [ADR](../adr/README.md). Nie kopiuj implementacji ani całego kontraktu do tego opisu.
+Nie tworzyć kolejnej abstrakcji dla samego faktu istnienia kilku backendów. Adapter może implementować tylko podzbiór zdolności; brak zdolności to jawny błąd, nie ukryty fallback.

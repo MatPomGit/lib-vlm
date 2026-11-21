@@ -1,8 +1,7 @@
-# Prywatność, pochodzenie danych i aparatury
+# Prywatność i dane multimodalne
 
-Żadne rzeczywiste dane uczestników, nagrania, sekrety, zrzuty twarzy i wrażliwe wyniki nie należą do kodu Git.
-Przed wdrożeniem biblioteki, która przetwarza dane osobowe lub komunikuje się z siecią, udokumentuj w tym repozytorium klasy danych, przepływy i network egress oraz wprowadź odpowiednie pola do schematu manifestu. Obecny `config/component.json` nie zawiera pól `data_classification` ani `network_egress`, dlatego nie traktuj ich jako zweryfikowanych.
-Rejestr urządzeń pomiarowych i kontraktów: `MatPomGit/research-autopilot/catalog/equipment/` i `docs/equipment/`.
-Rejestr komputerów i sieci: `MatPomGit/homeserver-infra/docs/infrastructure/network/`.
-Dla adapterów zachowaj `equipment_id`, typ/wersję SDK, jednostki, współrzędne, źródła timestampów, kalibrację, parametry i status pomiarowy.
-Numer seryjny jest właściwością kanonicznego, kontrolowanego rejestru; nie publikuj go w publicznej dokumentacji bez decyzji właściciela.
+Biblioteka ma przyjmować tekst, obrazy, klatki wideo i audio, które mogą zawierać dane osobowe. **Nie przechowuje się** materiałów uczestników, nagrań, promptów ani danych eksperymentalnych w publicznym repozytorium, PR, Pages i logach CI.
+
+Przed implementacją transportu należy określić dozwolone endpointy, kontrolę przesyłania danych poza host, retencję, zgodę i cel przetwarzania oraz minimalną telemetrię. Nie wolno utożsamiać `localhost` z pełną izolacją: kontrolę dostępu i uprawnień zapewnia również konfiguracja backendu.
+
+Identyfikatory sprzętu i źródeł pomiarowych należą do kontrolowanego rejestru urządzeń; metadane pochodzenia, timestampy i wersje modeli mogą być zapisywane wyłącznie zgodnie z polityką danych eksperymentu. Każdy adapter musi definiować, co opuszcza proces i które pola mogą znaleźć się w logach. Domyślnie odrzuca się pełne payloady w logowaniu.
