@@ -6,4 +6,4 @@ Docelowe struktury: `ModelRequest`, `ContentPart`, `ModelResponse`, `ModelCapabi
 
 Warstwa podstawowa odpowiada za walidację, serializację, zgodność typów i stabilny model błędów; nie prowadzi schedulerów, model-routera ani telemetrii Research Autopilot. Kontrole przepływu informacji i retry powinny być jawne, ograniczone i idempotentne tam, gdzie to możliwe.
 
-Kontrakt: [docs/contracts.md](../../../../docs/contracts.md). **Status: PLANNED, bez kodu.**
+Kontrakt: [docs/contracts.md](../../../docs/contracts.md). **Status: PLANNED, bez kodu.**
