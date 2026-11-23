@@ -1,18 +1,18 @@
 schema_version: 1
 template_version: "1.0.0"
 repository_type: lib
-component_id: REPLACE_COMPONENT_ID
-programme: null
-owner: REPLACE_OWNER
-updated: null
+component_id: lib-vlm
+programme: research-autopilot
+owner: MatPomGit
+updated: 2026-11-21
 lifecycle: scaffold
 evidence_status: not_run
 device_validation_status: not_applicable
 pages_status: not_configured
 release_status: not_released
 source_version: 0.1.0
-next_action: configure_component_and_run_scaffold_validator
+next_action: implement_core_contract_and_first_provider
 blockers:
-  - replace_template_metadata
-  - run_local_tests
-  - confirm_license_and_publication_rights
+  - no_executable_library
+  - choose_license_before_distribution
+  - validate_provider_with_real_local_model

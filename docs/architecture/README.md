@@ -1,11 +1,11 @@
-# Architektura biblioteki
+# Architektura lib-vlm
 
-[ARCHITECTURE.md](../../ARCHITECTURE.md) jest krótkim przeglądem systemu. Szczegóły przechowuj wyłącznie tutaj, nie powielając kontraktów `contracts/api.json`.
+[ARCHITECTURE.md](../../ARCHITECTURE.md) przedstawia topologię biblioteki. Dokumenty techniczne:
 
-- [Komponenty](components.md): rzeczywiste moduły, granice i API.
-- [Przepływy](data-flow.md): wejścia, serializacja, wyjścia i uprawnienia.
-- [Dystrybucja](distribution.md): build, pakiet, instalacja i wydanie.
-- [ADR](../adr/README.md): uzasadnienia istotnych decyzji.
-- [Model zagrożeń](../security/threat-model.md): ryzyka i dowody kontroli.
+- [Komponenty](components.md): odpowiedzialności planowanych modułów `core/text/vision/audio/providers`.
+- [Przepływy danych](data-flow.md): format wejść i wyjść, granice zaufania i przetwarzanie multimodalne.
+- [Dystrybucja](distribution.md): plan pakowania i rozdzielenie stanów test/publikacja.
+- [Kontrakty](../contracts.md): planowane typy, błędy i semantyka API.
+- [ADR-0004](../adr/0004-unified-llm-vlm.md): decyzja o jednym repo dla LLM/VLM.
 
-**Stan: NOT_IMPLEMENTED.** Wraz z pierwszym działającym modułem podaj rzeczywistą ścieżkę kodu, kontrakt, test i wspierane środowisko. Nie opisuj planu jako zweryfikowanej implementacji.
+**Status: PROPOSED / NOT_IMPLEMENTED.** Zmiana kontraktu po uruchomieniu konsumentów wymaga testów i kontroli SemVer.

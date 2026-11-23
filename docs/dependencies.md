@@ -1,6 +1,9 @@
-# Zależności i łańcuch dostaw
+# Backend, zależności i licencje
 
-Zapisz każdy runtime, SDK, manager pakietów, licencję, pakiet i przypiętą wersję/SHA/digest. Plik blokady odpowiedni do platformy jest częścią projektu produkcyjnego.
-Repozytoria prywatne i Github Packages mają odrębne reguły uwierzytelniania. Dostęp GitHub App do kodu nie oznacza automatycznego dostępu do prywatnych pakietów.
-Repozytoria nadrzędne `arc-*` powinny odczytywać zdalny HEAD każdej zależności w trybie audytu bieżącego, ale odtwarzać badanie `msc-*` na historycznie przypiętych wersjach.
-Wymagana osobna weryfikacja licencji SDK, modeli i assetów, także Unity oraz rozszerzeń natywnych.
+Do implementacji zaplanowano Python i adaptery do **już działających** lokalnych usług inferencji. Kandydaci: Ollama, llama.cpp server oraz serwery udostępniające API kompatybilne z OpenAI. To plan integracji, **nie** lista zainstalowanych ani zweryfikowanych zależności.
+
+Rdzeń powinien pozostać lekki. Transport HTTP i formaty multimodalne dobierać według rzeczywiście użytego API, nie dodawać jednocześnie wielu klientów, serwerów i modeli. Nie pakować wag, datasetów ani zewnętrznych SDK do biblioteki.
+
+Przed integracją dostawcy wymagane są: dokumentacja API, kompatybilna licencja, wersja/digest, test błędów, limitów i prywatności, wynik na rzeczywistym lokalnym modelu. Pamięć GPU, model-router i harmonogram są odpowiedzialnością wykonawców Research Autopilot, nie biblioteki.
+
+**Zależności runtime: brak wybranych; audyt: NOT_RUN.**

@@ -2,17 +2,17 @@
   "schema_version": 1,
   "template_version": "1.0.0",
   "type": "lib",
-  "component_id": "REPLACE_LIB_ID",
-  "display_name": "REPLACE_LIB_TITLE",
+  "component_id": "lib-vlm",
+  "display_name": "Unified Language and Vision Models Library",
   "version": "0.1.0",
   "release_status": "scaffold",
-  "owner": "REPLACE_OWNER",
+  "owner": "MatPomGit",
   "license_spdx": "UNDECIDED",
-  "language": "REPLACE_LANGUAGE",
+  "language": "Python (planned)",
   "distribution_kind": "unselected",
-  "package_identifier": "REPLACE_PACKAGE_ID",
+  "package_identifier": "lib_vlm",
   "source_paths": [
-    "src"
+    "src/lib_vlm"
   ],
   "api_contract": "contracts/api.json",
   "dependencies": [],
@@ -20,8 +20,8 @@
   "consumers": [],
   "supported_platforms": [],
   "compatibility": [],
-  "repository_url": "REPLACE_REPOSITORY_URL",
-  "documentation_url": "REPLACE_DOCS_URL",
+  "repository_url": "https://github.com/MatPomGit/lib-vlm",
+  "documentation_url": "https://github.com/MatPomGit/lib-vlm#readme",
   "published_package_url": null,
   "dependency_lockfiles": []
 }

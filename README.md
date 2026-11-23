@@ -1,34 +1,25 @@
-# REPLACE_LIB_TITLE
+# lib-vlm
 
-**Rodzaj:** `lib-*` · **Etap:** scaffold · **API:** eksperymentalne, niewydane.  
-**Autor podstawowy:** Mateusz Pomianek; opcjonalni współautorzy po potwierdzeniu wkładu.
+**Wspólna biblioteka dostępu do modeli językowych i multimodalnych.** Projekt obejmuje LLM oraz VLM w jednym repozytorium i jednej rodzinie kontraktów. Status: **architektura opracowana, implementacja i wydanie NOT_IMPLEMENTED**.
 
-Repozytorium definiuje jeden komponent wielokrotnego użytku, z jawnie wersjonowanym kontraktem.
-Warto tworzyć osobną bibliotekę dopiero, gdy istnieje rzeczywiste współużycie albo niezależny cykl życia i wersjonowania.
+Biblioteka ma ujednolicać żądania tekstowe, obrazy, wybrane reprezentacje wideo i audio, odpowiedzi, metadane modelu oraz błędy backendów. Głównym zastosowaniem jest integracja lokalnej inferencji z narzędziami badawczymi i automatyzacją. Nie jest to odrębny system agentowy ani silnik inferencji.
 
-## Publiczny interfejs
+## Zakres
 
-[docs/contracts.md](docs/contracts.md), [contracts/api.json](contracts/api.json).
+| Moduł | Zakres | Status |
+| --- | --- | --- |
+| [core](src/lib_vlm/core/README.md) | ModelRequest, ModelResponse, części treści, zdolności modelu | PLANNED |
+| [text](src/lib_vlm/text/README.md) | Konwersacje, tekst, odpowiedzi strukturalne | PLANNED |
+| [vision](src/lib_vlm/vision/README.md) | Obrazy, klatki wideo i metadane czasowe | PLANNED |
+| [audio](src/lib_vlm/audio/README.md) | Wejście i wyjście audio modeli multimodalnych | PLANNED |
+| [providers](src/lib_vlm/providers/README.md) | Adaptery lokalnych API inferencji | PLANNED |
 
-## Zależności i kompatybilność
+## Dokumentacja
 
-[docs/compatibility.md](docs/compatibility.md), [docs/consumers.md](docs/consumers.md).
+[Architektura](ARCHITECTURE.md) · [Kontrakt API](docs/contracts.md) · [Przepływ danych](docs/architecture/data-flow.md) · [Plan walidacji](docs/testing.md) · [Roadmap](docs/roadmap.md) · [Bezpieczeństwo](SECURITY.md).
 
-## Walidacja szkieletu
+Jedynym właścicielem kodu multimodalnych adapterów będzie `lib-vlm`; osobne `lib-llm` nie jest zależnością ani wymogiem. Planowane integracje to Research Autopilot, aplikacje eksperymentalne oraz biblioteki Unity/Unreal. **Nie ma jeszcze potwierdzonych konsumentów ani testów inferencji.**
 
-```bash
-python scripts/validate_repository.py --phase scaffold
-python scripts/validate_documentation.py
-python scripts/validate_pages.py
-python -m unittest discover -s tests -v
-```
+## Status techniczny
 
-Zacznij od [TEMPLATE_SETUP.md](TEMPLATE_SETUP.md). GitHub Packages jest opcjonalnym kanałem zależnym od ekosystemu.
-
-## Audyt i kontrole jakości
-
-Zobacz [audyt szablonu z 2026-11-19](reviews/2026-11-19-template-audit.md) i plan działań P0–P2. Publiczne repozytoria mogą korzystać z GitHub-hosted runners. Szablon zawiera minimalny [workflow Scaffold CI](.github/workflows/ci.yml) z walidacją metadanych i testami regresyjnymi; nie buduje ani nie publikuje pakietów.
-
-## Architektura i bezpieczeństwo
-
-[Architektura](ARCHITECTURE.md), [ADR](docs/adr/README.md), [model zagrożeń](docs/security/threat-model.md), [łańcuch dostaw](docs/security/supply-chain.md), [zarządzanie](GOVERNANCE.md) i [limity dokumentacji](docs/documentation.md). Publiczna dokumentacja API korzysta tylko z `pages/` ([Pages](docs/pages.md)); `docs/` pozostaje wewnętrzne. [Wydania LIB](docs/releases.md) wymagają osobnej autoryzacji.
+W repozytorium działa jedynie szkielet walidacji. Brak instalowalnego pakietu, modeli i runtime. `LICENSE` wymaga wyboru licencji przed dystrybucją. Dokumentacja w `docs/` jest inżynierska; `pages/` pozostaje oddzielnym źródłem ewentualnej witryny, bez automatycznej publikacji.
